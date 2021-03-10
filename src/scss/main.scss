@@ -92,6 +92,21 @@ a {
 	}
 }
 
+h2 {
+	@include r(1023) {
+		font-size: 35px;
+	}
+
+	@include r(767) {
+		font-size: 29px;
+	}
+
+	font-size: 41px;
+	line-height: 1.27;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
 .container {
 	@include r(1190) {
 		padding: 0 20px;
@@ -114,35 +129,77 @@ a {
 	color: #fff;
 
 	.container {
+		@include r(1023) {
+			display: block;
+		}
+
 		display: flex;
 
 		& > div {
+			@include r(1023) {
+				width: 100%;
+			}
+
 			width: 50%;
 			position: relative;
 
 			&:first-child {
+				@include r(767) {
+					padding: 30px 0;
+				}
+
 				padding: 82px 0;
 			}
 
 			&:last-child {
-				display: flex;
-				align-items: flex-end;
+				position: relative;
 
-				& > div {
-					width: 50%;
-					position: relative;
-					padding-bottom: 25px;
-					font-size: 12px;
+				.list {
+					@include r(1023) {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+					}
+	
+					display: flex;
+					align-items: flex-end;
+					height: 100%;
 
-					strong {
-						font-size: 17px;
-						display: inline-block;
-						margin-bottom: 5px;
-						line-height: 1.09;
+					& > div {
+						@include r(1023) {
+							padding-left: 20%;
+						}
+
+						@include r(767) {
+							padding-left: 40px;
+							padding-bottom: 5px;
+						}
+
+						width: 50%;
+						position: relative;
+						padding-bottom: 25px;
+						font-size: 12px;
+	
+						strong {
+							font-size: 17px;
+							display: inline-block;
+							margin-bottom: 5px;
+							line-height: 1.09;
+						}
 					}
 				}
 
 				img {
+					@include r(1279) {
+						width: 119%;
+					}
+
+					@include r(1023) {
+						width: 100%;
+						position: static;
+					}
+
 					position: absolute;
 					bottom: 0;
 					right: 0;
@@ -156,12 +213,29 @@ a {
 	}
 
 	&__top {
+		@include r(767) {
+			display: block;
+
+			span {
+				display: block;
+				margin-top: 10px;
+			}
+		}
+
 		display: flex;
 		align-items: center;
 		margin-bottom: 11px;
 	}
 
 	&__online {
+		@include r(767) {
+			display: inline-block;
+
+			span {
+				margin-top: 0;
+			}
+		}
+
 		padding: 5px 15px;
 		border: 1.5px solid #27CDC2;
 		border-radius: 30px;
@@ -179,11 +253,22 @@ a {
 	}
 
 	h1 {
+		@include r(767) {
+			text-align: center;
+			margin-top: 15px;
+		}
+
 		font-weight: bold !important;
 		line-height: 1.09 !important;
 	}
 
 	&__subtitle {
+		@include r(767) {
+			text-align: center;
+			font-size: 15px;
+			font-weight: normal;
+		}
+
 		font-weight: bold;
 		font-size: 20.5px;
 		line-height: 1.51;
@@ -191,24 +276,101 @@ a {
 	}
 
 	p {
+		@include r(767) {
+			br {
+				display: none;
+			}
+		}
+
 		padding-left: 18px;
 		border-left: 1px solid #fff;
 		line-height: 1.3;
 		font-size: 15px;
 		margin-bottom: 34px;
 	}
+
+	&__bottom {
+		@include r(767) {
+			display: block;
+			text-align: center;
+		}
+
+		display: flex;
+		align-items: center;
+
+		.timer {
+			position: relative;
+			top: -10px;
+		}
+
+		.days {
+			position: absolute;
+			bottom: -15px;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			font-size: 12px;
+
+			span:nth-child(2) {
+				position: relative;
+				left: 3px;
+				margin: 0 40px;
+			}
+		}
+
+		.time {
+			font-weight: bold;
+			color: $green;
+			font-size: 39px;
+		}
+	}
+
+	.btn {
+		@include r(767) {
+			margin-right: 0;
+			margin-bottom: 30px;
+		}
+
+		margin-right: 20px;
+	}
 }
 
 .icons {
+	@include r(767) {
+		padding: 45px 0;
+	}
+
 	padding: 69px 0;
 
 	.container {
+		@include r(1023) {
+			flex-wrap: wrap;
+		}
+
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
 	&__item {
+		@include r(1279) {
+			font-size: 15px;
+		}
+
+		@include r(1023) {
+			width: 50%;
+			margin-bottom: 20px;
+		}
+
+		@include r(767) {
+			width: 100%;
+			
+			br {
+				display: none;
+			}
+		}
+
 		display: flex;
 		align-items: center;
 		font-size: 17px;
@@ -216,6 +378,10 @@ a {
 	}
 
 	&__icon {
+		@include r(767) {
+			flex-shrink: 0;
+		}
+
 		width: 70px;
 		height: 70px;
 		border-radius: 50%;
@@ -224,5 +390,488 @@ a {
 		justify-content: center;
 		background: #F3F5FB;
 		margin-right: 16px;
+	}
+}
+
+.goals {
+	@include r(1279) {
+		padding: 0 0 60px;
+	}
+
+	@include r(767) {
+		padding: 0 0 25px;
+	}
+
+	padding: 60px 0;
+
+	.container {
+		.flex {
+			@include r(1023) {
+				display: block;
+			}
+
+			@include r(767) {
+				display: flex;
+				flex-direction: column;
+			}
+
+			display: flex;
+			justify-content: space-between;
+
+			& > div {
+				@include r(1023) {
+					width: 100%;
+				}
+
+				width: 50%;
+	
+				&:first-child {
+					@include r(1023) {
+						margin-bottom: 40px;
+					}
+
+					@include r(767) {
+						order: 2;
+						display: block;
+					}
+					
+					display: flex;
+					justify-content: space-between;
+					text-align: center;
+					line-height: 1.44;
+
+					& > div {
+						@include r(767) {
+							width: 100%;
+							margin-bottom: 40px;
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+
+						width: 50%;
+					}
+
+					iframe {
+						@include r(1279) {
+							width: 95% !important;	
+						}
+
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	p {
+		@include r(1279) {
+			padding-left: 20px;
+		}
+
+		@include r(767) {
+			padding-left: 0;
+		}
+
+		font-size: 15px;
+		margin-bottom: 8px;
+		padding-left: 50px;
+
+		strong {
+			display: inline-block;
+			margin-bottom: 12px;
+			font-size: 20px;
+			margin-top: 10px;
+		}
+	}
+
+
+	.btn {
+		@include r(1279) {
+			margin-left: 20px;
+		}
+
+		@include r(767) {
+			margin-left: 0;
+			margin-bottom: 40px;
+		}
+
+		margin-top: 34px;
+		margin-left: 50px;
+	}
+}
+
+.speakers {
+	background: #F3F5FB;
+	padding: 60px 0;
+}
+
+.speaker {
+	@include r(767) {
+		display: block;
+	}
+
+	display: flex;
+	margin-bottom: 78px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&__photo {
+		@include r(767) {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		width: 268px;
+		flex-shrink: 0;
+		margin-right: 30px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__name {
+		font-weight: bold;
+		font-size: 28px;
+		margin-bottom: 12px;
+	}
+
+	&__com {
+		font-size: 15px;
+		margin-bottom: 15px;
+	}
+
+	p {
+		@include r(767) {
+			br {
+				display: none;
+			}
+		}
+
+		font-size: 17px;
+		line-height: 1.44;
+		margin-bottom: 15px;
+	}
+
+	&__social {
+		display: flex;
+		margin-top: 55px;
+
+		span {
+			display: block;
+			font-size: 14px;
+			margin-right: 20px;
+		}
+
+		a {
+			margin-right: 15px;
+		}
+	}
+}
+
+.program {
+	padding: 60px 0;
+
+	&__item {
+		@include r(767) {
+			display: block;
+		}
+
+		display: flex;
+		margin-bottom: 63px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__speaker {
+		@include r(1023) {
+			min-width: 30%;
+		}
+
+		@include r(767) {
+			display: flex;
+			align-items: center;
+		}
+
+		min-width: 20%;
+
+		&-photo {
+			@include r(767) {
+				margin-right: 15px;
+			}
+
+			margin-bottom: 14px;
+		}
+
+		&-name {
+			font-size: 12px;
+			margin-bottom: 20px;
+
+			strong {
+				display: inline-block;
+				font-size: 17px;
+				margin-bottom: 3px;
+			}
+		}
+
+		&-com {
+			@include r(767) {
+				display: none;
+			}
+
+			font-size: 12px;
+			color: #717070;
+			line-height: 1.33;
+		}
+	}
+
+	&__list {
+		@include r(767) {
+			padding: 10px 0 10px 20px;
+		}
+
+		border-left: 2px solid #000;
+		padding: 20px 0 20px 40px;
+
+		p {
+			@include r(767) {
+				font-size: 15px;
+			}
+
+			margin-bottom: 10px;
+			font-size: 17px;
+			line-height: 1.47;
+
+			strong {
+				margin-bottom: 20px;
+				font-size: 20px;
+				line-height: 1.25;
+			}
+		}
+	}
+
+	.btn {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.webinar {
+	padding: 60px 0;
+	background: #F3F5FB;
+
+	h2 {
+		margin-bottom: 80px;
+	}
+
+	&__list {
+		@include r(1023) {
+			display: block;
+		}
+
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__name {
+		@include r(1023) {
+			margin-top: 40px;
+		}
+
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 1.25;
+		padding-bottom: 31px;
+		margin-bottom: 25px;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 2px;
+			width: 70px;
+			background: $blue;
+		}
+	}
+
+	p {
+		@include r(1023) {
+			br {
+				display: none;
+			}
+		}
+
+		line-height: 1.31;
+	}
+}
+
+.organization {
+	padding: 60px 0;
+
+	.flex {
+		@include r(1023) {
+			display: block;
+		}
+
+		display: flex;
+
+		& > div {
+			@include r(1023) {
+				width: 100%;
+			}
+
+			width: 50%;
+		}
+	}
+
+	p {
+		margin-bottom: 20px;
+		line-height: 1.26;
+	}
+	
+	.bottom {
+		@include r(1023) {
+			margin-bottom: 40px;
+		}
+
+		@include r(767) {
+			display: block;
+			text-align: center;
+		}
+
+		display: flex;
+		margin-top: 40px;
+
+		div {
+			@include r(767) {
+				border: 0;
+				position: relative;
+				padding-bottom: 20px;
+				margin-bottom: 20px;
+
+				br {
+					display: none;
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					width: 30%;
+					background: $blue;
+					height: 2px;
+					transform: translateX(-50%);
+				}
+			}
+
+			border-right: 2px solid #B3ADAD;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-right: 20px;
+			margin-right: 20px;
+			line-height: 1.47;
+
+			&:last-child {
+				border: 0;
+			}
+		}
+	}
+}
+
+.partners {
+	@include r(767) {
+		padding: 0 0 45px;
+	}
+
+	padding: 60px 0;
+
+	.microsoft {
+		text-align: center;
+		margin-bottom: 60px;
+		
+		span {
+			display: block;
+		}
+
+		img {
+			width: 181px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		img {
+			@include r(767) {
+				width: 74px;
+			}
+
+			@include r(374) {
+				width: 69px;
+			}
+
+			width: 143px;
+		}
+	}
+}
+
+.registration {
+	background: $blue;
+	padding: 52px 0;
+	color: #fff;
+
+	.container {
+		@include r(767) {
+			text-align: center;
+		}
+
+		position: relative;
+	}
+
+	h3 {
+		font-weight: bold;
+		font-size: 28px;
+		line-height: 1.36;
+		margin-bottom: 11px;
+	}
+
+	p {
+		font-size: 20px;
+		line-height: 1.39;
+		margin-bottom: 38px;
+	}
+
+	.book {
+		@include r(1023) {
+			display: block;
+			position: static;
+			transform: none;
+			margin-top: 40px;
+		}
+
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.btn {
+		background: #fff !important;
+		color: $blue !important;
+		font-weight: bold !important;
 	}
 }

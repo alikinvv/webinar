@@ -35,7 +35,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "presets": ["@babel/preset-env"],
+  "presets": [
+    "@babel/preset-env"
+  ],
   "bugs": {
     "url": "https://github.com/alikinvv/workflow-gulp/issues"
   },
